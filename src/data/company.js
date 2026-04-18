@@ -90,7 +90,7 @@ export const PROJECTS = [
     tags: ['AI', 'EdTech', 'Next.js'],
     description: "Ghana's first AI-powered smart classroom — delivering intelligent, on-demand learning to students and educators.",
     link: 'https://lecturewithkws.site',
-    image: 'https://image.thum.io/get/width/1200/crop/900/noanimate/https://lecturewithkws.site',
+    image: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Flecturewithkws.site?w=1200&h=900',
     color: 'from-brand-600 to-accent-cyan',
   },
   {
@@ -99,7 +99,7 @@ export const PROJECTS = [
     tags: ['React', 'Crypto', 'UI Prototype'],
     description: 'Dark-themed crypto portfolio tracker with live prices, trade actions, and performance insights for BTC, ETH, and SOL.',
     link: 'https://cryptuiscreen.vercel.app/',
-    image: 'https://image.thum.io/get/width/1200/crop/900/noanimate/https://cryptuiscreen.vercel.app/',
+    image: '/projects/mobile.png',
     color: 'from-navy to-brand-600',
   },
   {
@@ -108,7 +108,7 @@ export const PROJECTS = [
     tags: ['React', 'Tailwind', 'Framer Motion'],
     description: 'Personal portfolio for a full-stack developer — projects, stack, testimonials, and direct client contact.',
     link: 'https://kwadwowilsonportfolio.vercel.app/',
-    image: 'https://image.thum.io/get/width/1200/crop/900/noanimate/https://kwadwowilsonportfolio.vercel.app/',
+    image: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fkwadwowilsonportfolio.vercel.app?w=1200&h=900',
     color: 'from-brand-700 to-brand-400',
   },
   {
@@ -117,7 +117,7 @@ export const PROJECTS = [
     tags: ['Next.js', 'Premium', 'Brand'],
     description: 'Premium self-development platform built around mindset mastery, growth systems, and legacy leadership.',
     link: 'https://visionariesvault.vercel.app/',
-    image: 'https://image.thum.io/get/width/1200/crop/900/noanimate/https://visionariesvault.vercel.app/',
+    image: '/projects/web.png',
     color: 'from-brand-500 to-accent-sky',
   },
   {
@@ -126,7 +126,7 @@ export const PROJECTS = [
     tags: ['Next.js', 'Listings', 'Search'],
     description: "Luxury real estate marketplace for Accra — 1,240+ listings, mortgage calculator, and agent directory.",
     link: 'https://realestate-weld-eta.vercel.app/',
-    image: 'https://image.thum.io/get/width/1200/crop/900/noanimate/https://realestate-weld-eta.vercel.app/',
+    image: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Frealestate-weld-eta.vercel.app?w=1200&h=900',
     color: 'from-brand-600 to-navy',
   },
   {
@@ -135,7 +135,7 @@ export const PROJECTS = [
     tags: ['Telegram', 'Python', 'Payments'],
     description: 'VIP Telegram bot with subscription plans, live status checks, and FAQ/support automation.',
     link: 'https://t.me/ernestwood_bot',
-    image: null,
+    image: '/projects/bot.png',
     color: 'from-accent-cyan to-brand-600',
   },
 ]

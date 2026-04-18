@@ -109,6 +109,7 @@ export default function Home() {
                     src={p.image}
                     alt={`${p.title} preview`}
                     loading="lazy"
+                    onError={(e) => { e.currentTarget.style.display = 'none' }}
                     className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
                   />
                 )}

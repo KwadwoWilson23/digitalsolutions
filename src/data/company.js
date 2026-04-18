@@ -90,7 +90,7 @@ export const PROJECTS = [
     tags: ['AI', 'EdTech', 'Next.js'],
     description: "Ghana's first AI-powered smart classroom — delivering intelligent, on-demand learning to students and educators.",
     link: 'https://lecturewithkws.site',
-    image: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Flecturewithkws.site?w=1200&h=900',
+    image: '/projects/lecture.png',
     color: 'from-brand-600 to-accent-cyan',
   },
   {
@@ -108,7 +108,7 @@ export const PROJECTS = [
     tags: ['React', 'Tailwind', 'Framer Motion'],
     description: 'Personal portfolio for a full-stack developer — projects, stack, testimonials, and direct client contact.',
     link: 'https://kwadwowilsonportfolio.vercel.app/',
-    image: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fkwadwowilsonportfolio.vercel.app?w=1200&h=900',
+    image: '/projects/portfolio.png',
     color: 'from-brand-700 to-brand-400',
   },
   {
@@ -126,7 +126,7 @@ export const PROJECTS = [
     tags: ['Next.js', 'Listings', 'Search'],
     description: "Luxury real estate marketplace for Accra — 1,240+ listings, mortgage calculator, and agent directory.",
     link: 'https://realestate-weld-eta.vercel.app/',
-    image: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Frealestate-weld-eta.vercel.app?w=1200&h=900',
+    image: '/projects/realestate.png',
     color: 'from-brand-600 to-navy',
   },
   {

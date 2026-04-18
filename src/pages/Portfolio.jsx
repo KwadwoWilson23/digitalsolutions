@@ -1,6 +1,8 @@
 import { useMemo, useState } from 'react'
+import { AnimatePresence, motion, LayoutGroup } from 'framer-motion'
 import PageHeader from '../components/PageHeader.jsx'
 import CTASection from '../components/CTASection.jsx'
+import { spring } from '../components/Motion.jsx'
 import { PROJECTS } from '../data/company.js'
 
 export default function Portfolio() {
@@ -20,45 +22,81 @@ export default function Portfolio() {
       />
 
       <section className="container-px mx-auto max-w-7xl pb-6">
-        <div className="flex flex-wrap items-center gap-2">
-          {categories.map((c) => (
-            <button
-              key={c}
-              onClick={() => setFilter(c)}
-              className={`cursor-pointer rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200 ${
-                filter === c
-                  ? 'bg-brand-600 text-white shadow-glow'
-                  : 'border border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
-              }`}
-            >
-              {c}
-            </button>
-          ))}
-        </div>
+        <LayoutGroup>
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.5 }}
+            variants={{ show: { transition: { staggerChildren: 0.05 } } }}
+            className="flex flex-wrap items-center gap-2"
+          >
+            {categories.map((c) => {
+              const active = filter === c
+              return (
+                <motion.button
+                  key={c}
+                  variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0, transition: spring } }}
+                  onClick={() => setFilter(c)}
+                  whileTap={{ scale: 0.96 }}
+                  className={`relative cursor-pointer rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200 ${
+                    active ? 'text-white' : 'border border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
+                  }`}
+                >
+                  {active && (
+                    <motion.span
+                      layoutId="filter-pill"
+                      className="absolute inset-0 -z-0 rounded-full bg-brand-600 shadow-glow"
+                      transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                    />
+                  )}
+                  <span className="relative z-10">{c}</span>
+                </motion.button>
+              )
+            })}
+          </motion.div>
+        </LayoutGroup>
       </section>
 
       <section className="container-px mx-auto max-w-7xl pb-20">
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {items.map((p) => (
-            <article key={p.title} className="group cursor-pointer overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-card transition-colors duration-200 hover:border-brand-300">
-              <div className={`relative flex aspect-[4/3] items-end bg-gradient-to-br ${p.color}`}>
-                <div className="absolute inset-0 opacity-20 mix-blend-overlay [background-image:radial-gradient(circle_at_30%_20%,white,transparent_40%),radial-gradient(circle_at_80%_70%,white,transparent_35%)]" />
-                <div className="relative p-6 text-white">
-                  <span className="inline-flex rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-widest backdrop-blur">{p.category}</span>
-                  <h3 className="mt-3 font-display text-2xl font-semibold">{p.title}</h3>
+        <motion.div layout className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <AnimatePresence mode="popLayout">
+            {items.map((p, i) => (
+              <motion.article
+                key={p.title}
+                layout
+                initial={{ opacity: 0, y: 24, scale: 0.96 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95, y: -10 }}
+                transition={{ ...spring, delay: i * 0.04 }}
+                whileHover={{ y: -6 }}
+                className="group cursor-pointer overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-card transition-colors duration-200 hover:border-brand-300 hover:shadow-glow"
+              >
+                <div className={`relative flex aspect-[4/3] items-end bg-gradient-to-br ${p.color}`}>
+                  <div className="absolute inset-0 opacity-20 mix-blend-overlay [background-image:radial-gradient(circle_at_30%_20%,white,transparent_40%),radial-gradient(circle_at_80%_70%,white,transparent_35%)]" />
+                  <motion.div
+                    aria-hidden
+                    className="pointer-events-none absolute -inset-4 opacity-60 blur-2xl"
+                    animate={{ opacity: [0.4, 0.7, 0.4] }}
+                    transition={{ repeat: Infinity, duration: 6, ease: 'easeInOut' }}
+                    style={{ background: 'radial-gradient(300px circle at 30% 30%, rgba(255,255,255,0.2), transparent 60%)' }}
+                  />
+                  <div className="relative p-6 text-white">
+                    <span className="inline-flex rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-widest backdrop-blur">{p.category}</span>
+                    <h3 className="mt-3 font-display text-2xl font-semibold">{p.title}</h3>
+                  </div>
                 </div>
-              </div>
-              <div className="p-6">
-                <p className="text-sm leading-relaxed text-slate-600">{p.description}</p>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {p.tags.map((t) => (
-                    <span key={t} className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600">{t}</span>
-                  ))}
+                <div className="p-6">
+                  <p className="text-sm leading-relaxed text-slate-600">{p.description}</p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {p.tags.map((t) => (
+                      <span key={t} className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600">{t}</span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </article>
-          ))}
-        </div>
+              </motion.article>
+            ))}
+          </AnimatePresence>
+        </motion.div>
       </section>
 
       <CTASection />

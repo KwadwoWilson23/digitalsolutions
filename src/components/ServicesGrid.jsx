@@ -1,17 +1,20 @@
 import { Link } from 'react-router-dom'
 import ServiceIcon from './ServiceIcon.jsx'
+import { Stagger, StaggerItem } from './Motion.jsx'
 import { SERVICES } from '../data/company.js'
 
 export default function ServicesGrid({ limit }) {
   const items = limit ? SERVICES.slice(0, limit) : SERVICES
   return (
-    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    <Stagger className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4" stagger={0.06}>
       {items.map((s) => (
-        <Link
+        <StaggerItem
           key={s.slug}
-          to="/services"
-          className="group relative flex cursor-pointer flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-card transition-colors duration-200 hover:border-brand-300 hover:bg-brand-50/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600"
+          variant="scale"
+          whileHover={{ y: -6 }}
+          className="group relative flex cursor-pointer flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-card transition-colors duration-200 hover:border-brand-300 hover:bg-brand-50/40"
         >
+          <Link to="/services" className="absolute inset-0 rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600" aria-label={s.title} />
           <span className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-brand-600 transition-colors duration-200 group-hover:bg-brand-600 group-hover:text-white">
             <ServiceIcon name={s.icon} />
           </span>
@@ -23,8 +26,8 @@ export default function ServicesGrid({ limit }) {
               <path d="M5 12h14M13 6l6 6-6 6" />
             </svg>
           </span>
-        </Link>
+        </StaggerItem>
       ))}
-    </div>
+    </Stagger>
   )
 }

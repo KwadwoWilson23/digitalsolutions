@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { NavLink, Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
 import Logo from './Logo.jsx'
 
 const links = [
@@ -28,7 +29,10 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 flex justify-center px-4 pt-4">
-      <nav
+      <motion.nav
+        initial={{ opacity: 0, y: -16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ type: 'spring', stiffness: 120, damping: 18 }}
         className={`w-full max-w-7xl rounded-2xl border border-slate-200/70 bg-white/85 px-4 backdrop-blur-md transition-shadow duration-200 md:px-6 ${
           scrolled ? 'shadow-card' : 'shadow-none'
         }`}
@@ -108,7 +112,7 @@ export default function Navbar() {
             </ul>
           </div>
         )}
-      </nav>
+      </motion.nav>
     </header>
   )
 }

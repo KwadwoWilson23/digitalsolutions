@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import Logo from './Logo.jsx'
+import { Stagger, StaggerItem } from './Motion.jsx'
 import { CONTACT } from '../data/company.js'
 
 export default function Footer() {
@@ -7,8 +8,8 @@ export default function Footer() {
   return (
     <footer className="mt-10 bg-navy text-slate-300">
       <div className="container-px mx-auto max-w-7xl py-16">
-        <div className="grid gap-10 md:grid-cols-4">
-          <div className="md:col-span-2">
+        <Stagger className="grid gap-10 md:grid-cols-4" amount={0.1}>
+          <StaggerItem className="md:col-span-2">
             <Logo variant="light" />
             <p className="mt-4 max-w-md text-sm leading-relaxed text-slate-400">
               We design and engineer digital products — websites, mobile apps,
@@ -23,9 +24,9 @@ export default function Footer() {
                 <IconPhone /> {CONTACT.phone}
               </a>
             </div>
-          </div>
+          </StaggerItem>
 
-          <div>
+          <StaggerItem>
             <h4 className="font-display text-sm font-semibold uppercase tracking-widest text-white">
               Company
             </h4>
@@ -35,9 +36,9 @@ export default function Footer() {
               <li><Link className="transition-colors duration-200 hover:text-white" to="/portfolio">Portfolio</Link></li>
               <li><Link className="transition-colors duration-200 hover:text-white" to="/contact">Contact</Link></li>
             </ul>
-          </div>
+          </StaggerItem>
 
-          <div>
+          <StaggerItem>
             <h4 className="font-display text-sm font-semibold uppercase tracking-widest text-white">
               Services
             </h4>
@@ -49,8 +50,8 @@ export default function Footer() {
               <li>SEO Optimization</li>
               <li>Automation Bots</li>
             </ul>
-          </div>
-        </div>
+          </StaggerItem>
+        </Stagger>
 
         <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-6 text-xs text-slate-400 md:flex-row md:items-center">
           <p>© {year} Kwadwo Wilson Digital Solutions. All rights reserved.</p>

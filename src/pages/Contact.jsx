@@ -1,5 +1,7 @@
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 import PageHeader from '../components/PageHeader.jsx'
+import { Stagger, StaggerItem, FadeUp, spring } from '../components/Motion.jsx'
 import { CONTACT, SERVICES } from '../data/company.js'
 
 export default function Contact() {
@@ -31,31 +33,40 @@ export default function Contact() {
 
       <section className="container-px mx-auto max-w-7xl pb-20">
         <div className="grid gap-8 md:grid-cols-5">
-          <aside className="space-y-6 md:col-span-2">
+          <Stagger className="space-y-6 md:col-span-2">
             <InfoCard icon={<IconMail />} label="Email us" value={CONTACT.email} href={`mailto:${CONTACT.email}`} />
             <InfoCard icon={<IconPhone />} label="Call / WhatsApp" value={CONTACT.phoneLocal} href={`tel:${CONTACT.phoneRaw}`} />
             <InfoCard icon={<IconPin />} label="Based in" value={CONTACT.location} />
             <InfoCard icon={<IconClock />} label="Hours" value={CONTACT.hours} />
 
-            <div className="rounded-2xl border border-slate-200 bg-navy p-6 text-white shadow-card">
+            <StaggerItem
+              variant="scale"
+              className="rounded-2xl border border-slate-200 bg-navy p-6 text-white shadow-card"
+            >
               <h3 className="font-display text-lg font-semibold">Prefer a quick chat?</h3>
               <p className="mt-2 text-sm text-slate-300">Message us on WhatsApp — we usually reply within a few minutes during work hours.</p>
-              <a
+              <motion.a
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.97 }}
                 href={`https://wa.me/${CONTACT.phoneRaw.replace('+', '')}`}
                 target="_blank"
                 rel="noreferrer"
                 className="mt-4 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-navy transition-colors duration-200 hover:bg-slate-100"
               >
                 <IconChat /> Chat on WhatsApp
-              </a>
-            </div>
-          </aside>
+              </motion.a>
+            </StaggerItem>
+          </Stagger>
 
-          <form
+          <motion.form
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={spring}
             onSubmit={onSubmit}
             className="rounded-3xl border border-slate-200 bg-white p-6 shadow-card md:col-span-3 md:p-8"
           >
-            <div className="grid gap-5 sm:grid-cols-2">
+            <Stagger className="grid gap-5 sm:grid-cols-2" stagger={0.06}>
               <Field label="Full name" name="name" value={form.name} onChange={onChange} required placeholder="Jane Doe" />
               <Field label="Email" name="email" type="email" value={form.email} onChange={onChange} required placeholder="jane@company.com" />
               <Field label="Phone (optional)" name="phone" value={form.phone} onChange={onChange} placeholder="+233 ..." />
@@ -70,9 +81,9 @@ export default function Contact() {
                 <option>GHS 15,000 – 40,000</option>
                 <option>GHS 40,000+</option>
               </SelectField>
-            </div>
+            </Stagger>
 
-            <div className="mt-5">
+            <FadeUp className="mt-5">
               <label htmlFor="message" className="mb-2 block text-sm font-medium text-slate-700">
                 Project details
               </label>
@@ -86,22 +97,25 @@ export default function Contact() {
                 placeholder="Tell us what you want to build, your goals, and any deadlines…"
                 className="w-full resize-none rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-brand-500 focus:outline-none focus:ring-4 focus:ring-brand-100"
               />
-            </div>
+            </FadeUp>
 
-            <div className="mt-6 flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-center">
+            <FadeUp className="mt-6 flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-center">
               <p className="text-xs text-slate-500">
                 We reply within 24 hours. Your details are never shared.
               </p>
-              <button
+              <motion.button
+                whileHover={{ y: -2, boxShadow: '0 0 40px 6px rgba(56,189,248,0.35)' }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ type: 'spring', stiffness: 200, damping: 15 }}
                 type="submit"
                 disabled={status === 'sending'}
-                className="btn-primary disabled:cursor-not-allowed disabled:opacity-70"
+                className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-gradient-to-r from-brand-500 to-accent-cyan px-7 py-3.5 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:opacity-70"
               >
                 {status === 'sending' ? 'Sending…' : status === 'sent' ? 'Message ready' : 'Send message'}
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="h-4 w-4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-              </button>
-            </div>
-          </form>
+              </motion.button>
+            </FadeUp>
+          </motion.form>
         </div>
       </section>
     </>
@@ -110,7 +124,7 @@ export default function Contact() {
 
 function Field({ label, name, type = 'text', value, onChange, required, placeholder }) {
   return (
-    <div>
+    <StaggerItem>
       <label htmlFor={name} className="mb-2 block text-sm font-medium text-slate-700">
         {label}{required && <span className="ml-0.5 text-brand-600">*</span>}
       </label>
@@ -122,40 +136,44 @@ function Field({ label, name, type = 'text', value, onChange, required, placehol
         onChange={onChange}
         required={required}
         placeholder={placeholder}
-        className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-brand-500 focus:outline-none focus:ring-4 focus:ring-brand-100"
+        className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 transition-shadow duration-200 focus:border-brand-500 focus:outline-none focus:ring-4 focus:ring-brand-100"
       />
-    </div>
+    </StaggerItem>
   )
 }
 function SelectField({ label, name, value, onChange, children }) {
   return (
-    <div>
+    <StaggerItem>
       <label htmlFor={name} className="mb-2 block text-sm font-medium text-slate-700">{label}</label>
       <select
         id={name}
         name={name}
         value={value}
         onChange={onChange}
-        className="w-full cursor-pointer rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-brand-500 focus:outline-none focus:ring-4 focus:ring-brand-100"
+        className="w-full cursor-pointer rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 transition-shadow duration-200 focus:border-brand-500 focus:outline-none focus:ring-4 focus:ring-brand-100"
       >
         {children}
       </select>
-    </div>
+    </StaggerItem>
   )
 }
 function InfoCard({ icon, label, value, href }) {
-  const Wrap = href ? 'a' : 'div'
+  const Wrap = href ? motion.a : motion.div
   return (
-    <Wrap
-      {...(href ? { href } : {})}
-      className={`flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-card transition-colors duration-200 ${href ? 'hover:border-brand-300 hover:bg-brand-50/30 cursor-pointer' : ''}`}
-    >
-      <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-600">{icon}</span>
-      <div>
-        <div className="text-xs font-semibold uppercase tracking-widest text-slate-500">{label}</div>
-        <div className="mt-1 font-medium text-navy">{value}</div>
-      </div>
-    </Wrap>
+    <StaggerItem variant="scale">
+      <Wrap
+        whileHover={{ y: -3 }}
+        transition={spring}
+        {...(href ? { href } : {})}
+        className={`flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-card transition-colors duration-200 ${href ? 'hover:border-brand-300 hover:bg-brand-50/30 cursor-pointer' : ''}`}
+      >
+        <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-600">{icon}</span>
+        <div>
+          <div className="text-xs font-semibold uppercase tracking-widest text-slate-500">{label}</div>
+          <div className="mt-1 font-medium text-navy">{value}</div>
+        </div>
+      </Wrap>
+    </StaggerItem>
   )
 }
 

@@ -1,6 +1,7 @@
 import PageHeader from '../components/PageHeader.jsx'
 import ServiceIcon from '../components/ServiceIcon.jsx'
 import CTASection from '../components/CTASection.jsx'
+import { Stagger, StaggerItem } from '../components/Motion.jsx'
 import { SERVICES } from '../data/company.js'
 
 export default function Services() {
@@ -13,9 +14,14 @@ export default function Services() {
       />
 
       <section className="container-px mx-auto max-w-7xl pb-20">
-        <div className="grid gap-6 md:grid-cols-2">
+        <Stagger className="grid gap-6 md:grid-cols-2" stagger={0.07}>
           {SERVICES.map((s) => (
-            <article key={s.slug} className="group relative rounded-2xl border border-slate-200 bg-white p-7 shadow-card transition-colors duration-200 hover:border-brand-300">
+            <StaggerItem
+              key={s.slug}
+              variant="scale"
+              whileHover={{ y: -4 }}
+              className="group relative rounded-2xl border border-slate-200 bg-white p-7 shadow-card transition-colors duration-200 hover:border-brand-300"
+            >
               <div className="flex items-start justify-between">
                 <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-brand-600 transition-colors duration-200 group-hover:bg-brand-600 group-hover:text-white">
                   <ServiceIcon name={s.icon} />
@@ -34,9 +40,9 @@ export default function Services() {
                   </li>
                 ))}
               </ul>
-            </article>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </section>
 
       <CTASection />

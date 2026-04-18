@@ -149,66 +149,45 @@ function PanelWrap({ progress, start, mid1, mid2, end, children }) {
   )
 }
 
-function Panel({ kind, active }) {
-  const base = 'absolute inset-0 flex items-center justify-center p-8'
-  const grid = (
-    <div
-      aria-hidden
-      className="pointer-events-none absolute inset-0 opacity-40"
-      style={{
-        backgroundImage:
-          'linear-gradient(to right, rgba(56,189,248,0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(56,189,248,0.15) 1px, transparent 1px)',
-        backgroundSize: '40px 40px',
-      }}
-    />
-  )
-  const glow = (
-    <div
-      aria-hidden
-      className="pointer-events-none absolute inset-0"
-      style={{
-        background:
-          'radial-gradient(600px 300px at 30% 20%, rgba(56,189,248,0.28), transparent 60%), radial-gradient(500px 260px at 80% 80%, rgba(37,99,235,0.25), transparent 60%)',
-      }}
-    />
-  )
+const IMAGES = {
+  web: '/projects/web.png',
+  mobile: '/projects/mobile.png',
+  shop: '/projects/shop.png',
+  dashboard: '/projects/dashboard.png',
+  bot: '/projects/bot.png',
+}
 
-  if (kind === 'web') {
-    return (
-      <div className={base}>
-        {grid}{glow}
-        <BrowserMock />
-      </div>
-    )
-  }
-  if (kind === 'mobile') {
-    return (
-      <div className={base}>
-        {grid}{glow}
-        <PhoneMock />
-      </div>
-    )
-  }
-  if (kind === 'shop') {
-    return (
-      <div className={base}>
-        {grid}{glow}
-        <ShopCard />
-      </div>
-    )
-  }
-  if (kind === 'dashboard') {
-    return (
-      <div className={base}>
-        {grid}{glow}
-        <DashboardMock />
-      </div>
-    )
-  }
+function Panel({ kind, active }) {
+  const src = IMAGES[kind]
   return (
-    <div className={base}>
-      {grid}{glow}
-      <BotMock />
+    <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-40"
+        style={{
+          backgroundImage:
+            'linear-gradient(to right, rgba(56,189,248,0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(56,189,248,0.15) 1px, transparent 1px)',
+          backgroundSize: '40px 40px',
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            'radial-gradient(600px 300px at 30% 20%, rgba(56,189,248,0.28), transparent 60%), radial-gradient(500px 260px at 80% 80%, rgba(37,99,235,0.25), transparent 60%)',
+        }}
+      />
+      <motion.img
+        key={kind}
+        src={src}
+        alt={`${kind} preview`}
+        loading="lazy"
+        initial={{ opacity: 0, scale: 1.02 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        className="relative z-[1] h-[86%] w-[86%] rounded-2xl border border-white/10 object-contain shadow-2xl"
+      />
     </div>
   )
 }

@@ -162,10 +162,10 @@ export const TESTIMONIALS = [
 ]
 
 export const STATS = [
-  { value: '50+', label: 'Projects Delivered' },
-  { value: '30+', label: 'Happy Clients' },
+  { value: '10+', label: 'Projects Delivered' },
+  { value: '10',  label: 'Happy Clients' },
+  { value: '3',   label: 'Years Active' },
   { value: '8',   label: 'Core Services' },
-  { value: '99%', label: 'On-time Delivery' },
 ]
 
 export const PROCESS = [

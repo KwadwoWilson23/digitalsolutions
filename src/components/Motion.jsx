@@ -81,11 +81,11 @@ export function Stagger({ children, className, amount = 0.2, stagger = 0.08, as:
   )
 }
 
-export function StaggerItem({ children, className, variant = 'up', as: Tag = 'div', whileHover }) {
+export function StaggerItem({ children, className, variant = 'up', as: Tag = 'div', whileHover, ...rest }) {
   const Comp = motion[Tag]
   const variants = variant === 'scale' ? scaleIn : variant === 'right' ? slideRight : fadeUp
   return (
-    <Comp variants={variants} whileHover={whileHover} className={className}>
+    <Comp variants={variants} whileHover={whileHover} className={className} {...rest}>
       {children}
     </Comp>
   )

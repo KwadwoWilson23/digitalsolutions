@@ -95,21 +95,38 @@ export default function Home() {
           {PROJECTS.slice(0, 3).map((p) => (
             <StaggerItem
               key={p.title}
+              as="a"
+              href={p.link || '#'}
+              target={p.link ? '_blank' : undefined}
+              rel={p.link ? 'noreferrer' : undefined}
               variant="scale"
               whileHover={{ y: -6 }}
-              className="group cursor-pointer overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-card transition-colors duration-200 hover:border-brand-300 hover:shadow-glow"
+              className="group block cursor-pointer overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-card transition-colors duration-200 hover:border-brand-300 hover:shadow-glow"
             >
-              <div className={`relative flex aspect-[4/3] items-end bg-gradient-to-br ${p.color}`}>
-                <div className="absolute inset-0 opacity-20 mix-blend-overlay [background-image:radial-gradient(circle_at_30%_20%,white,transparent_40%),radial-gradient(circle_at_80%_70%,white,transparent_35%)]" />
-                <motion.div
-                  aria-hidden
-                  className="pointer-events-none absolute -inset-4 blur-3xl"
-                  animate={{ opacity: [0.3, 0.6, 0.3] }}
-                  transition={{ repeat: Infinity, duration: 5, ease: 'easeInOut' }}
-                  style={{ background: 'radial-gradient(260px circle at 30% 30%, rgba(255,255,255,0.25), transparent 60%)' }}
-                />
+              <div className={`relative flex aspect-[4/3] items-end overflow-hidden bg-gradient-to-br ${p.color}`}>
+                {p.image && (
+                  <img
+                    src={p.image}
+                    alt={`${p.title} preview`}
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
+                  />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                {!p.image && (
+                  <>
+                    <div className="absolute inset-0 opacity-20 mix-blend-overlay [background-image:radial-gradient(circle_at_30%_20%,white,transparent_40%),radial-gradient(circle_at_80%_70%,white,transparent_35%)]" />
+                    <motion.div
+                      aria-hidden
+                      className="pointer-events-none absolute -inset-4 blur-3xl"
+                      animate={{ opacity: [0.3, 0.6, 0.3] }}
+                      transition={{ repeat: Infinity, duration: 5, ease: 'easeInOut' }}
+                      style={{ background: 'radial-gradient(260px circle at 30% 30%, rgba(255,255,255,0.25), transparent 60%)' }}
+                    />
+                  </>
+                )}
                 <div className="relative p-6 text-white">
-                  <span className="inline-flex rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-widest backdrop-blur">{p.category}</span>
+                  <span className="inline-flex rounded-full bg-white/20 px-3 py-1 text-xs font-semibold uppercase tracking-widest backdrop-blur">{p.category}</span>
                   <h3 className="mt-3 font-display text-2xl font-semibold">{p.title}</h3>
                 </div>
               </div>

@@ -1,9 +1,13 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Hero from '../components/Hero.jsx'
+import StatementSection from '../components/StatementSection.jsx'
+import StickyServices from '../components/StickyServices.jsx'
+import BlueprintScene from '../components/BlueprintScene.jsx'
 import BentoFeatures from '../components/BentoFeatures.jsx'
 import SectionHeader from '../components/SectionHeader.jsx'
 import CTASection from '../components/CTASection.jsx'
+import WordReveal from '../components/WordReveal.jsx'
 import { Stagger, StaggerItem, spring } from '../components/Motion.jsx'
 import { PROJECTS, TESTIMONIALS, PROCESS } from '../data/company.js'
 
@@ -11,6 +15,26 @@ export default function Home() {
   return (
     <>
       <Hero />
+
+      <StatementSection
+        eyebrow="The studio"
+        text="We build digital products that quietly do the heavy lifting."
+        highlightWords={['digital', 'products']}
+        sub="Websites, apps, stores, and systems — engineered to load fast, rank well, and make your team's life easier."
+        variant="navy"
+      />
+
+      <StickyServices />
+
+      <BlueprintScene />
+
+      <StatementSection
+        eyebrow="End-to-end partner"
+        text="Design. Engineer. Launch. Grow."
+        highlightWords={['Grow.']}
+        sub="One small team handles every layer — no agency chains, no hand-offs, no finger-pointing."
+        variant="brand"
+      />
 
       <BentoFeatures />
 
@@ -45,12 +69,19 @@ export default function Home() {
 
       <section className="section container-px mx-auto max-w-7xl">
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
-          <SectionHeader
-            eyebrow="Recent work"
-            title="Projects we're proud of"
-            description="A snapshot of the digital products we've helped ship recently."
-            align="left"
-          />
+          <div className="max-w-2xl">
+            <span className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-brand-50 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-brand-700">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand-600" />
+              Recent work
+            </span>
+            <WordReveal
+              as="h2"
+              text="Projects we're proud of."
+              highlightWords={['proud']}
+              highlightClass="text-brand-600"
+              className="mt-4 text-3xl font-semibold text-navy sm:text-4xl md:text-5xl"
+            />
+          </div>
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}

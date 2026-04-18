@@ -3,6 +3,7 @@ export const CONTACT = {
   phone: '+233 50 439 9802',
   phoneRaw: '+233504399802',
   phoneLocal: '050 439 9802',
+  whatsapp: 'https://wa.me/message/DDDRI6DY2BXUI1',
   location: 'Accra, Ghana',
   hours: 'Mon – Sat, 9:00 AM – 7:00 PM GMT',
 }

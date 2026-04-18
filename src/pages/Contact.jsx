@@ -48,7 +48,7 @@ export default function Contact() {
               <motion.a
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.97 }}
-                href={`https://wa.me/${CONTACT.phoneRaw.replace('+', '')}`}
+                href={CONTACT.whatsapp}
                 target="_blank"
                 rel="noreferrer"
                 className="mt-4 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-navy transition-colors duration-200 hover:bg-slate-100"

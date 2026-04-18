@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar.jsx'
 import Footer from './components/Footer.jsx'
 import ScrollToTop from './components/ScrollToTop.jsx'
+import FloatingChat from './components/FloatingChat.jsx'
 import Home from './pages/Home.jsx'
 import Services from './pages/Services.jsx'
 import Portfolio from './pages/Portfolio.jsx'
@@ -25,6 +26,7 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
+      <FloatingChat />
     </div>
   )
 }

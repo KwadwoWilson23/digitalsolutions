@@ -15,11 +15,21 @@ export default function Contact() {
   const onSubmit = (e) => {
     e.preventDefault()
     setStatus('sending')
-    const subject = encodeURIComponent(`New project inquiry — ${form.service || 'General'}`)
-    const body = encodeURIComponent(
-      `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nService: ${form.service}\nBudget: ${form.budget}\n\nMessage:\n${form.message}`
-    )
-    window.location.href = `mailto:${CONTACT.email}?subject=${subject}&body=${body}`
+    const lines = [
+      `*New project inquiry — ${form.service || 'General'}*`,
+      '',
+      `*Name:* ${form.name}`,
+      `*Email:* ${form.email}`,
+      form.phone && `*Phone:* ${form.phone}`,
+      form.service && `*Service:* ${form.service}`,
+      form.budget && `*Budget:* ${form.budget}`,
+      '',
+      '*Message:*',
+      form.message,
+    ].filter(Boolean)
+    const text = encodeURIComponent(lines.join('\n'))
+    const waNumber = CONTACT.phoneRaw.replace('+', '')
+    window.open(`https://wa.me/${waNumber}?text=${text}`, '_blank', 'noopener,noreferrer')
     setTimeout(() => setStatus('sent'), 400)
   }
 

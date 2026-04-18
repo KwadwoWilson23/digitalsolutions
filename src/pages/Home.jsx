@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import Hero from '../components/Hero.jsx'
+import BentoFeatures from '../components/BentoFeatures.jsx'
 import SectionHeader from '../components/SectionHeader.jsx'
-import ServicesGrid from '../components/ServicesGrid.jsx'
 import CTASection from '../components/CTASection.jsx'
 import { PROJECTS, TESTIMONIALS, PROCESS } from '../data/company.js'
 
@@ -10,16 +10,7 @@ export default function Home() {
     <>
       <Hero />
 
-      <section id="services" className="section container-px mx-auto max-w-7xl">
-        <SectionHeader
-          eyebrow="What we do"
-          title="Services built for modern businesses"
-          description="From a simple landing page to a full school management system — one team, everything you need to go digital."
-        />
-        <div className="mt-14">
-          <ServicesGrid />
-        </div>
-      </section>
+      <BentoFeatures />
 
       <section className="bg-slate-50">
         <div className="section container-px mx-auto max-w-7xl">

@@ -8,6 +8,51 @@ export const CONTACT = {
   hours: 'Mon – Sat, 9:00 AM – 7:00 PM GMT',
 }
 
+export const PILLARS = [
+  {
+    slug: 'societal-solutions',
+    tag: 'Pillar 01',
+    title: 'Societal Impact Solutions',
+    tagline: 'Tech that solves problems everyday people actually face.',
+    description:
+      'We build products that tackle real, painful problems in West African life — rent scams, land fraud, broken record-keeping. Software with a public purpose.',
+    proofPoints: [
+      { name: 'Escavio', label: 'Rent fraud & escrow', desc: 'Protects tenants and landlords from rent scams with verified listings and escrow-secured payments.' },
+      { name: 'KromMap', label: 'Land fraud detection', desc: 'Registers, verifies, and traces land ownership so families and investors stop losing money to double-sold plots.' },
+    ],
+    features: ['Fraud detection', 'Trust & verification', 'Mobile-first', 'Local payment rails'],
+    icon: 'shield',
+  },
+  {
+    slug: 'government-solutions',
+    tag: 'Pillar 02',
+    title: 'Government & Public Sector Solutions',
+    tagline: 'Digitize, modernize, and adopt AI — without the noise.',
+    description:
+      'We help ministries, agencies, and district assemblies move from paper and spreadsheets to secure digital systems, and integrate AI where it actually improves service delivery.',
+    proofPoints: [
+      { name: 'Records digitization', label: 'Paper → dashboard', desc: 'Retire filing cabinets. Search, audit, and report in seconds.' },
+      { name: 'AI-assisted operations', label: 'Practical AI adoption', desc: 'Deploy AI where it earns its keep — triage, translation, drafting, search — with safeguards built in.' },
+    ],
+    features: ['Records digitization', 'Citizen portals', 'AI adoption playbooks', 'Secure hosting'],
+    icon: 'gov',
+  },
+  {
+    slug: 'ai-automation',
+    tag: 'Pillar 03',
+    title: 'AI Automation for Businesses',
+    tagline: 'Give your business an AI edge — and buy back your time.',
+    description:
+      'From WhatsApp chatbots to front-desk automation to full workflow AI, we integrate the tools that let SMBs and mid-sized companies serve more customers, faster, without hiring for it.',
+    proofPoints: [
+      { name: 'AI front desk', label: '24/7 first response', desc: 'Handles bookings, FAQs, and hand-offs across WhatsApp, web, and phone.' },
+      { name: 'Workflow automation', label: 'Ops on autopilot', desc: 'Quotes, invoices, follow-ups, reporting — automated end to end.' },
+    ],
+    features: ['WhatsApp & web chatbots', 'Front-desk automation', 'Workflow automation', 'Custom AI integrations'],
+    icon: 'bot',
+  },
+]
+
 export const SERVICES = [
   {
     slug: 'website-development',
@@ -162,15 +207,15 @@ export const TESTIMONIALS = [
 ]
 
 export const STATS = [
-  { value: '10+', label: 'Projects Delivered' },
+  { value: '3',   label: 'Pillars We Serve' },
+  { value: '10+', label: 'Products Delivered' },
   { value: '10',  label: 'Happy Clients' },
-  { value: '3',   label: 'Years Active' },
-  { value: '8',   label: 'Core Services' },
+  { value: '24/7', label: 'AI Systems Live' },
 ]
 
 export const PROCESS = [
-  { step: '01', title: 'Discover', desc: 'We learn your business, goals, and users.' },
-  { step: '02', title: 'Design', desc: 'Clean, conversion-focused UI/UX for every screen.' },
-  { step: '03', title: 'Build', desc: 'Modern, scalable engineering with quality checks.' },
-  { step: '04', title: 'Launch & grow', desc: 'Ship, measure, and iterate after launch.' },
+  { step: '01', title: 'Discover', desc: 'We learn the problem, the people, and what "impact" actually means for you.' },
+  { step: '02', title: 'Design', desc: 'Clean, conversion-focused UI/UX for every screen, sized to the audience.' },
+  { step: '03', title: 'Build', desc: 'Modern, scalable engineering — with AI wired in where it earns its keep.' },
+  { step: '04', title: 'Launch & grow', desc: 'Ship, measure, and iterate — with real support after go-live.' },
 ]

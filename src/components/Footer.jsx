@@ -12,9 +12,9 @@ export default function Footer() {
           <StaggerItem className="md:col-span-2">
             <Logo variant="light" />
             <p className="mt-4 max-w-md text-sm leading-relaxed text-slate-400">
-              We design and engineer digital products — websites, mobile apps,
-              e-commerce stores, school systems, and automation bots — that help
-              businesses grow online.
+              KASIR is a software and AI studio building products for citizens,
+              government, and businesses across West Africa. Innovate. Build.
+              Impact.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <a href={`mailto:${CONTACT.email}`} className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-white transition-colors duration-200 hover:bg-white/10">
@@ -40,22 +40,22 @@ export default function Footer() {
 
           <StaggerItem>
             <h4 className="font-display text-sm font-semibold uppercase tracking-widest text-white">
-              Services
+              What we solve
             </h4>
             <ul className="mt-4 space-y-2 text-sm">
-              <li>Website Development</li>
-              <li>Mobile App Development</li>
-              <li>E-commerce Websites</li>
-              <li>School Management Systems</li>
-              <li>SEO Optimization</li>
-              <li>Automation Bots</li>
+              <li>Societal Impact Solutions</li>
+              <li>Government & Public Sector</li>
+              <li>AI Automation for Businesses</li>
+              <li>Custom Software & Web</li>
+              <li>Mobile Apps</li>
+              <li>Workflow Automation</li>
             </ul>
           </StaggerItem>
         </Stagger>
 
         <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-6 text-xs text-slate-400 md:flex-row md:items-center">
-          <p>© {year} Kwadwo Wilson Digital Solutions. All rights reserved.</p>
-          <p>Built in Ghana · Serving clients worldwide</p>
+          <p>© {year} KASIR. All rights reserved.</p>
+          <p>Built in Ghana · Serving West Africa and beyond</p>
         </div>
       </div>
     </footer>

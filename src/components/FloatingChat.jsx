@@ -22,7 +22,7 @@ export default function FloatingChat() {
                 <WhatsAppGlyph className="h-5 w-5" />
               </span>
               <div>
-                <div className="text-sm font-semibold">Kwadwo Wilson Digital</div>
+                <div className="text-sm font-semibold">KASIR Studio</div>
                 <div className="text-[11px] opacity-90">Typically replies in minutes</div>
               </div>
               <button

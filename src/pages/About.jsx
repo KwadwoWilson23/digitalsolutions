@@ -50,8 +50,8 @@ export default function About() {
     <>
       <PageHeader
         eyebrow="About us"
-        title="A small team with one focus: your growth"
-        description="Kwadwo Wilson Digital Solutions is a Ghana-based digital agency helping startups, schools, and established businesses launch and scale online."
+        title="A small studio. Three big pillars. Real Ghanaian impact."
+        description="KASIR is an Accra-based software and AI studio building products for citizens, government agencies, and businesses across West Africa. Innovate. Build. Impact."
       />
 
       <section className="container-px mx-auto max-w-7xl pb-14">
@@ -75,19 +75,23 @@ export default function About() {
           </FadeUp>
           <Stagger className="space-y-5 text-slate-600 md:col-span-3" stagger={0.1}>
             <StaggerItem as="p">
-              We started Kwadwo Wilson Digital Solutions because too many
-              businesses were paying for websites that looked good once and then
-              broke — slow, unmaintained, invisible on Google.
+              KASIR started because too much software in Ghana was built for
+              somewhere else. Landlords still scam tenants. Families still lose
+              land. Ministries still lean on paper. SMBs still miss customers
+              because nobody is at the phone.
             </StaggerItem>
             <StaggerItem as="p">
-              Today we build websites, apps, stores, management systems, and
-              automations for teams that want a digital partner who actually
-              cares about outcomes. Our work is clean, fast, and built to last.
+              So we build in three directions at once. Societal-impact products
+              like Escavio and KromMap — tools that fight rent and land fraud
+              head-on. Government solutions that help agencies digitize and
+              adopt AI responsibly. And AI automation for businesses that want
+              to serve more customers without hiring for it.
             </StaggerItem>
             <StaggerItem as="p">
-              Whether you're a founder shipping your first product or a school
-              moving from paper to digital, we'll meet you where you are — and
-              take you where you want to go.
+              Whether you are a citizen looking for a safer way to rent, an
+              agency modernizing a public service, or a business trying to
+              compete on speed — we meet you where you are, and build what
+              actually ships.
             </StaggerItem>
           </Stagger>
         </div>

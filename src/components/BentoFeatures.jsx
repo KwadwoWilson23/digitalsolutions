@@ -9,13 +9,13 @@ const cardVariants = {
 }
 
 const cards = [
-  { key: 'web', span: 'md:col-span-2 md:row-span-2', icon: 'code', title: 'Website Development', blurb: 'Fast, SEO-ready business websites built with modern frameworks.', big: true },
-  { key: 'mobile', span: 'md:col-span-2', icon: 'device', title: 'Mobile App Development', blurb: 'Native-quality iOS & Android apps, from MVP to launch.' },
-  { key: 'shop', span: 'md:col-span-2', icon: 'cart', title: 'E-commerce Websites', blurb: 'MoMo, card, and global checkout — inventory and orders included.' },
-  { key: 'school', span: 'md:col-span-2', icon: 'dashboard', title: 'School & Management Systems', blurb: 'Students, fees, results, HR — all in one dashboard.' },
-  { key: 'seo', span: 'md:col-span-1', icon: 'search', title: 'SEO Optimization', blurb: 'Rank higher. Grow organically.' },
-  { key: 'bot', span: 'md:col-span-1', icon: 'bot', title: 'Automation Bots', blurb: 'WhatsApp, Telegram, AI workflows.' },
-  { key: 'launch', span: 'md:col-span-2', icon: 'rocket', title: 'Landing Pages', blurb: 'High-converting pages shipped in days, not months.' },
+  { key: 'societal', span: 'md:col-span-2 md:row-span-2', icon: 'shield', title: 'Societal Impact Solutions', blurb: 'Products that fix real West African problems — rent scams, land fraud, record-keeping. Escavio and KromMap are just the start.', big: true },
+  { key: 'gov', span: 'md:col-span-2', icon: 'gov', title: 'Government & Public Sector', blurb: 'Digitize records, deploy citizen portals, and adopt AI with safeguards built in.' },
+  { key: 'ai', span: 'md:col-span-2', icon: 'bot', title: 'AI Automation for Businesses', blurb: 'AI front desks, WhatsApp chatbots, and workflow automation that pays for itself in weeks.' },
+  { key: 'web', span: 'md:col-span-2', icon: 'code', title: 'Custom Software & Web', blurb: 'Fast, SEO-ready sites, dashboards, and internal tools — engineered to last.' },
+  { key: 'mobile', span: 'md:col-span-1', icon: 'device', title: 'Mobile Apps', blurb: 'iOS & Android from MVP to launch.' },
+  { key: 'shop', span: 'md:col-span-1', icon: 'cart', title: 'E-commerce', blurb: 'MoMo, card, and global checkout.' },
+  { key: 'launch', span: 'md:col-span-2', icon: 'rocket', title: 'Landing Pages & Campaigns', blurb: 'Conversion-focused pages shipped in days, not months.' },
 ]
 
 export default function BentoFeatures() {
@@ -35,15 +35,16 @@ export default function BentoFeatures() {
             Capabilities
           </span>
           <h2 className="mt-5 font-display text-3xl font-semibold tracking-tight text-white sm:text-5xl">
-            Everything you need to{' '}
+            Three pillars.{' '}
             <span className="bg-gradient-to-r from-brand-400 via-accent-sky to-accent-cyan bg-clip-text text-transparent">
-              ship and scale
-            </span>
-            .
+              Full-stack engineering
+            </span>{' '}
+            behind each one.
           </h2>
           <p className="mt-5 text-base leading-relaxed text-slate-300 sm:text-lg">
-            One team, one clear process, and the full stack of services a
-            growing business actually needs.
+            Whether we are protecting a tenant, digitizing a ministry, or
+            automating a business — it is the same small team, the same clean
+            process, the same obsession with shipping things that work.
           </p>
         </motion.div>
 

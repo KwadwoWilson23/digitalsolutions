@@ -28,16 +28,16 @@ export default function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-cyan opacity-70" />
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent-cyan" />
             </span>
-            Digital solutions agency
+            Software & AI studio · Accra, Ghana
           </motion.span>
 
           <div className="mt-6">
             <AnimatedHeadline
               className="text-4xl text-white sm:text-5xl md:text-6xl"
               segments={[
-                { text: 'We engineer' },
-                { text: 'digital products', gradient: true },
-                { text: 'that grow businesses.' },
+                { text: 'We build' },
+                { text: 'software and AI', gradient: true },
+                { text: 'for people, government, and business.' },
               ]}
             />
           </div>
@@ -49,9 +49,9 @@ export default function Hero() {
             custom={0}
             className="mt-6 max-w-xl text-lg leading-relaxed text-slate-300"
           >
-            Websites, mobile apps, e-commerce, school systems, SEO, and
-            automation — built with obsessive attention to speed, design, and
-            conversion.
+            KASIR is a software and AI studio building products that solve real
+            problems across West Africa — from tackling rent and land fraud, to
+            helping the public sector digitize, to giving businesses an AI edge.
           </motion.p>
 
           <motion.div
@@ -76,9 +76,9 @@ export default function Hero() {
             custom={2}
             className="mt-14 grid max-w-xl grid-cols-3 gap-6"
           >
-            <Stat value="50+" label="Projects shipped" />
-            <Stat value="30+" label="Happy clients" />
-            <Stat value="99%" label="On-time delivery" />
+            <Stat value="3" label="Pillars we serve" />
+            <Stat value="10+" label="Products shipped" />
+            <Stat value="24/7" label="AI systems live" />
           </motion.dl>
         </div>
 
@@ -137,7 +137,7 @@ function HeroVisual() {
           <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/80" />
           <span className="h-2.5 w-2.5 rounded-full bg-green-400/80" />
           <span className="ml-3 rounded-md bg-white/5 px-2 py-0.5 text-xs text-slate-400">
-            kwadwowilson.dev
+            kasir.tech
           </span>
         </div>
         <div className="mt-5 grid grid-cols-5 gap-3">

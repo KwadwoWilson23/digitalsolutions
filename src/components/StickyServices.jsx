@@ -5,37 +5,26 @@ import WordReveal from './WordReveal.jsx'
 const chapters = [
   {
     idx: '01',
-    title: 'Websites that load instantly',
-    body: 'Fast, SEO-ready business sites built on modern frameworks. Every element obsessed over — from the first byte to the final frame.',
-    tag: 'Website Development',
+    title: 'Software that solves problems everyday people face.',
+    body: 'Escavio fights rent scams with verified listings and escrow. KromMap protects families from land fraud. We build the products West Africa has been waiting for — where it hurts the most.',
+    tag: 'Societal Impact Solutions',
+    proofs: ['Escavio · Rent fraud & escrow', 'KromMap · Land fraud detection'],
     visual: 'web',
   },
   {
     idx: '02',
-    title: 'Mobile apps people actually use',
-    body: 'Native-quality iOS and Android apps with smooth motion, offline-ready data, and secure APIs. Ship to stores in weeks, not quarters.',
-    tag: 'Mobile App Development',
-    visual: 'mobile',
-  },
-  {
-    idx: '03',
-    title: 'Stores that convert browsers to buyers',
-    body: 'Full e-commerce with MoMo, card, and global checkout. Inventory, orders, and analytics — all of it, all in one.',
-    tag: 'E-commerce',
-    visual: 'shop',
-  },
-  {
-    idx: '04',
-    title: 'Systems that run your operation',
-    body: 'School and business management systems. Students, fees, staff, results, inventory — moved from paper to dashboard.',
-    tag: 'Management Systems',
+    title: 'Systems that help government agencies work like it is 2026.',
+    body: 'We digitize records, build citizen portals, and roll out AI where it earns its keep — so ministries, agencies, and district assemblies deliver faster, cleaner, and more accountable services.',
+    tag: 'Government & Public Sector',
+    proofs: ['Records digitization', 'AI adoption playbooks', 'Secure citizen portals'],
     visual: 'dashboard',
   },
   {
-    idx: '05',
-    title: 'Automation that works while you sleep',
-    body: 'WhatsApp and Telegram bots, AI support, and workflow automations that shave hours off your week — every week.',
-    tag: 'Automation & SEO',
+    idx: '03',
+    title: 'AI automation that gives businesses their edge back.',
+    body: 'From WhatsApp chatbots to a full AI front desk to end-to-end workflow automation — we integrate the tools that let SMBs and mid-sized companies serve more customers, faster, without hiring for it.',
+    tag: 'AI Automation for Businesses',
+    proofs: ['AI front desk · 24/7', 'Workflow automation', 'Custom AI integrations'],
     visual: 'bot',
   },
 ]
@@ -47,12 +36,12 @@ export default function StickyServices() {
         <div className="mx-auto max-w-3xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-brand-50 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-brand-700">
             <span className="h-1.5 w-1.5 rounded-full bg-brand-600" />
-            What we build
+            What we solve
           </span>
           <WordReveal
             as="h2"
-            text="Five services. One studio. Everything shipped under one roof."
-            highlightWords={['Five', 'services.', 'One', 'studio.']}
+            text="Three pillars. One studio. Software and AI built for real impact."
+            highlightWords={['Three', 'pillars.', 'real', 'impact.']}
             highlightClass="text-brand-600"
             className="mt-5 text-4xl font-semibold text-navy sm:text-5xl md:text-6xl"
           />
@@ -111,6 +100,24 @@ function Chapter({ chapter, index, total }) {
       >
         {chapter.body}
       </motion.p>
+      {chapter.proofs && (
+        <motion.ul
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.6 }}
+          transition={{ type: 'spring', stiffness: 100, damping: 18, delay: 0.35 }}
+          className="mt-5 flex flex-wrap gap-2"
+        >
+          {chapter.proofs.map((label) => (
+            <li
+              key={label}
+              className="rounded-full border border-brand-200 bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700"
+            >
+              {label}
+            </li>
+          ))}
+        </motion.ul>
+      )}
     </div>
   )
 }
@@ -199,7 +206,7 @@ function BrowserMock() {
         <span className="h-2.5 w-2.5 rounded-full bg-red-400/80" />
         <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/80" />
         <span className="h-2.5 w-2.5 rounded-full bg-green-400/80" />
-        <span className="ml-3 rounded-md bg-white/5 px-2 py-0.5 text-[10px] text-slate-400">kwadwowilson.dev</span>
+        <span className="ml-3 rounded-md bg-white/5 px-2 py-0.5 text-[10px] text-slate-400">kasir.tech</span>
       </div>
       <div className="mt-4 space-y-3">
         <div className="h-28 rounded-xl bg-gradient-to-br from-brand-500 to-accent-cyan" />

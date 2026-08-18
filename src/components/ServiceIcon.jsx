@@ -42,6 +42,14 @@ export default function ServiceIcon({ name, className = 'h-6 w-6' }) {
       return (
         <svg {...common}><path d="M5 19c1.5-4 4-6 7-7 1-3 3-5.5 7-7-1.5 4-4 6-7 7-1 3-3 5.5-7 7Z" /><path d="M5 19l-2 2" /><circle cx="15" cy="9" r="1.2" /></svg>
       )
+    case 'shield':
+      return (
+        <svg {...common}><path d="M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6l-8-4Z" /><path d="m9 12 2 2 4-4" /></svg>
+      )
+    case 'gov':
+      return (
+        <svg {...common}><path d="M3 21h18" /><path d="M4 21V10" /><path d="M20 21V10" /><path d="M4 10h16" /><path d="m3 10 9-6 9 6" /><path d="M8 21v-7" /><path d="M12 21v-7" /><path d="M16 21v-7" /></svg>
+      )
     default:
       return <svg {...common}><circle cx="12" cy="12" r="8" /></svg>
   }

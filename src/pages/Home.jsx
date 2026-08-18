@@ -18,9 +18,9 @@ export default function Home() {
 
       <StatementSection
         eyebrow="The studio"
-        text="We build digital products that quietly do the heavy lifting."
-        highlightWords={['digital', 'products']}
-        sub="Websites, apps, stores, and systems — engineered to load fast, rank well, and make your team's life easier."
+        text="We build software and AI that quietly does the heavy lifting."
+        highlightWords={['software', 'AI']}
+        sub="For citizens navigating rent and land fraud. For agencies moving from paper to platform. For businesses ready to compete with AI on their side."
         variant="navy"
       />
 
@@ -30,9 +30,9 @@ export default function Home() {
 
       <StatementSection
         eyebrow="End-to-end partner"
-        text="Design. Engineer. Launch. Grow."
-        highlightWords={['Grow.']}
-        sub="One small team handles every layer — no agency chains, no hand-offs, no finger-pointing."
+        text="Innovate. Build. Impact."
+        highlightWords={['Impact.']}
+        sub="One small team handles every layer — research, design, engineering, launch, and the AI stack underneath — with no agency chains and no hand-offs."
         variant="brand"
       />
 

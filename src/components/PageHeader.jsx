@@ -12,13 +12,13 @@ export default function PageHeader({ eyebrow, title, description }) {
         animate={{ rotate: 360 }}
         transition={{ repeat: Infinity, duration: 40, ease: 'linear' }}
       />
-      <div className="container-px mx-auto max-w-4xl pb-14 pt-20 text-center md:pt-28">
+      <div className="container-px mx-auto max-w-4xl pb-10 pt-14 text-center sm:pb-14 sm:pt-20 md:pt-28">
         {eyebrow && (
           <motion.span
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={spring}
-            className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-brand-50 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-brand-700"
+            className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-brand-50 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-brand-700 sm:text-xs"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-brand-600" />
             {eyebrow}
@@ -28,7 +28,7 @@ export default function PageHeader({ eyebrow, title, description }) {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ ...spring, delay: 0.1 }}
-          className="mt-5 font-display text-4xl font-semibold tracking-tight text-navy sm:text-5xl"
+          className="mt-4 font-display text-3xl font-semibold leading-[1.15] tracking-tight text-navy [text-wrap:balance] sm:mt-5 sm:text-5xl"
         >
           {title}
         </motion.h1>
@@ -37,7 +37,7 @@ export default function PageHeader({ eyebrow, title, description }) {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ ...spring, delay: 0.2 }}
-            className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg"
+            className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-slate-600 sm:mt-5 sm:text-base md:text-lg"
           >
             {description}
           </motion.p>

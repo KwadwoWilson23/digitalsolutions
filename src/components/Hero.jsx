@@ -15,29 +15,28 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-slate-950 text-white">
       <Background />
-      <div className="container-px mx-auto grid max-w-7xl gap-12 pb-28 pt-20 md:grid-cols-12 md:pb-36 md:pt-28">
+      <div className="container-px mx-auto grid max-w-7xl gap-10 pb-16 pt-14 sm:pb-24 sm:pt-20 md:grid-cols-12 md:gap-12 md:pb-36 md:pt-28">
         <div className="md:col-span-7">
           <motion.span
             variants={fadeUp}
             initial="hidden"
             animate="show"
             custom={-2}
-            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-semibold uppercase tracking-widest text-brand-200 backdrop-blur-md"
+            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-brand-200 backdrop-blur-md sm:text-xs"
           >
             <span className="relative flex h-1.5 w-1.5">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-cyan opacity-70" />
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent-cyan" />
             </span>
-            Software & AI studio · Accra, Ghana
+            Software & AI studio · Accra
           </motion.span>
 
-          <div className="mt-6">
+          <div className="mt-5 sm:mt-6">
             <AnimatedHeadline
-              className="text-4xl text-white sm:text-5xl md:text-6xl"
+              className="text-[2rem] leading-[1.1] text-white sm:text-5xl md:text-6xl"
               segments={[
-                { text: 'We build' },
-                { text: 'software and AI', gradient: true },
-                { text: 'for people, government, and business.' },
+                { text: 'Software and AI', gradient: true },
+                { text: 'built for real impact.' },
               ]}
             />
           </div>
@@ -47,11 +46,11 @@ export default function Hero() {
             initial="hidden"
             animate="show"
             custom={0}
-            className="mt-6 max-w-xl text-lg leading-relaxed text-slate-300"
+            className="mt-5 max-w-xl text-base leading-relaxed text-slate-300 sm:mt-6 sm:text-lg"
           >
-            KASIR is a software and AI studio building products that solve real
-            problems across West Africa — from tackling rent and land fraud, to
-            helping the public sector digitize, to giving businesses an AI edge.
+            KASIR builds products for citizens, government, and businesses
+            across West Africa — from fighting rent and land fraud, to
+            digitizing the public sector, to giving companies an AI edge.
           </motion.p>
 
           <motion.div
@@ -59,7 +58,7 @@ export default function Hero() {
             initial="hidden"
             animate="show"
             custom={1}
-            className="mt-9 flex flex-wrap items-center gap-4"
+            className="mt-7 flex flex-wrap items-center gap-3 sm:mt-9 sm:gap-4"
           >
             <MagneticButton to="/contact" variant="primary">
               Start a project <IconArrow />
@@ -74,7 +73,7 @@ export default function Hero() {
             initial="hidden"
             animate="show"
             custom={2}
-            className="mt-14 grid max-w-xl grid-cols-3 gap-6"
+            className="mt-10 grid max-w-xl grid-cols-3 gap-4 sm:mt-14 sm:gap-6"
           >
             <Stat value="3" label="Pillars we serve" />
             <Stat value="10+" label="Products shipped" />
@@ -99,8 +98,8 @@ function Stat({ value, label }) {
   return (
     <div>
       <dt className="sr-only">{label}</dt>
-      <dd className="font-display text-2xl font-semibold text-white md:text-3xl">{value}</dd>
-      <p className="mt-1 text-xs text-slate-400">{label}</p>
+      <dd className="font-display text-xl font-semibold text-white sm:text-2xl md:text-3xl">{value}</dd>
+      <p className="mt-1 text-[11px] leading-snug text-slate-400 sm:text-xs">{label}</p>
     </div>
   )
 }

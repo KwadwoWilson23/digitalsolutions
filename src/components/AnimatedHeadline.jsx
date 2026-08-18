@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 const container = {
   hidden: {},
   show: {
-    transition: { staggerChildren: 0.035, delayChildren: 0.1 },
+    transition: { staggerChildren: 0.03, delayChildren: 0.1 },
   },
 }
 
@@ -23,24 +23,38 @@ export default function AnimatedHeadline({ segments, className = '' }) {
       initial="hidden"
       animate="show"
       aria-label={segments.map((s) => s.text).join(' ')}
-      className={`font-display font-semibold leading-[1.05] tracking-tight ${className}`}
+      className={`font-display font-semibold leading-[1.08] tracking-tight [text-wrap:balance] ${className}`}
     >
-      {segments.map((seg, sIdx) => (
-        <span key={sIdx} className="inline-block align-baseline">
-          {Array.from(seg.text).map((ch, i) => (
-            <span key={i} className="relative inline-block overflow-hidden align-baseline">
-              <motion.span
-                variants={letter}
-                className={`inline-block ${seg.gradient ? 'bg-gradient-to-r from-brand-400 via-accent-sky to-accent-cyan bg-clip-text text-transparent' : ''}`}
-                aria-hidden
+      {segments.map((seg, sIdx) => {
+        const words = seg.text.split(' ')
+        return (
+          <span key={sIdx}>
+            {words.map((word, wIdx) => (
+              <span
+                key={wIdx}
+                className={`relative inline-block whitespace-nowrap align-baseline ${
+                  seg.gradient
+                    ? 'bg-gradient-to-r from-brand-400 via-accent-sky to-accent-cyan bg-clip-text text-transparent'
+                    : ''
+                }`}
               >
-                {ch === ' ' ? '\u00A0' : ch}
-              </motion.span>
-            </span>
-          ))}
-          {sIdx < segments.length - 1 && <span className="inline-block">&nbsp;</span>}
-        </span>
-      ))}
+                {Array.from(word).map((ch, cIdx) => (
+                  <span
+                    key={cIdx}
+                    className="relative inline-block overflow-hidden align-baseline"
+                  >
+                    <motion.span variants={letter} className="inline-block" aria-hidden>
+                      {ch}
+                    </motion.span>
+                  </span>
+                ))}
+                {wIdx < words.length - 1 && ' '}
+              </span>
+            ))}
+            {sIdx < segments.length - 1 && ' '}
+          </span>
+        )
+      })}
     </motion.h1>
   )
 }

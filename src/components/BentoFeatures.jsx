@@ -20,7 +20,7 @@ const cards = [
 
 export default function BentoFeatures() {
   return (
-    <section className="relative overflow-hidden bg-slate-950 py-24 text-white md:py-32">
+    <section className="relative overflow-hidden bg-slate-950 py-16 text-white sm:py-24 md:py-32">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(800px_400px_at_50%_0%,rgba(37,99,235,0.18),transparent_60%),radial-gradient(600px_400px_at_100%_100%,rgba(56,189,248,0.14),transparent_60%)]" />
       <div className="container-px mx-auto max-w-7xl">
         <motion.div
@@ -34,14 +34,14 @@ export default function BentoFeatures() {
             <span className="h-1.5 w-1.5 rounded-full bg-accent-cyan" />
             Capabilities
           </span>
-          <h2 className="mt-5 font-display text-3xl font-semibold tracking-tight text-white sm:text-5xl">
+          <h2 className="mt-4 font-display text-2xl font-semibold tracking-tight text-white [text-wrap:balance] sm:mt-5 sm:text-3xl md:text-5xl">
             Three pillars.{' '}
             <span className="bg-gradient-to-r from-brand-400 via-accent-sky to-accent-cyan bg-clip-text text-transparent">
               Full-stack engineering
             </span>{' '}
             behind each one.
           </h2>
-          <p className="mt-5 text-base leading-relaxed text-slate-300 sm:text-lg">
+          <p className="mt-4 text-sm leading-relaxed text-slate-300 sm:mt-5 sm:text-base md:text-lg">
             Whether we are protecting a tenant, digitizing a ministry, or
             automating a business — it is the same small team, the same clean
             process, the same obsession with shipping things that work.
@@ -53,7 +53,7 @@ export default function BentoFeatures() {
           whileInView="show"
           viewport={{ once: true, amount: 0.15 }}
           variants={{ show: { transition: { staggerChildren: 0.08 } } }}
-          className="mt-16 grid auto-rows-[200px] grid-cols-1 gap-5 md:grid-cols-4"
+          className="mt-10 grid auto-rows-[180px] grid-cols-1 gap-4 sm:mt-14 sm:gap-5 md:mt-16 md:auto-rows-[200px] md:grid-cols-4"
         >
           {cards.map((c) => (
             <BentoCard key={c.key} card={c} />

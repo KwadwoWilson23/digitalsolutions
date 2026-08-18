@@ -11,7 +11,7 @@ export default function BlueprintScene() {
   return (
     <section
       ref={ref}
-      className="relative flex min-h-[95vh] items-center overflow-hidden bg-slate-950 text-white"
+      className="relative flex min-h-[70vh] items-center overflow-hidden bg-slate-950 text-white md:min-h-[95vh]"
     >
       <motion.div
         aria-hidden
@@ -79,7 +79,7 @@ export default function BlueprintScene() {
 
       <motion.div
         style={{ y }}
-        className="container-px relative mx-auto grid w-full max-w-6xl gap-12 py-24 md:grid-cols-2 md:items-center"
+        className="container-px relative mx-auto grid w-full max-w-6xl gap-10 py-16 sm:py-24 md:grid-cols-2 md:items-center"
       >
         <div>
           <motion.span

@@ -45,7 +45,7 @@ export default function Home() {
             title="A simple, proven process"
             description="We keep it transparent and focused — no jargon, no surprises."
           />
-          <Stagger as="ol" className="mt-14 grid gap-6 md:grid-cols-4">
+          <Stagger as="ol" className="mt-10 grid gap-5 sm:mt-14 sm:gap-6 sm:grid-cols-2 md:grid-cols-4">
             {PROCESS.map((p) => (
               <StaggerItem
                 key={p.step}
@@ -91,7 +91,7 @@ export default function Home() {
             <Link to="/portfolio" className="btn-secondary">View all</Link>
           </motion.div>
         </div>
-        <Stagger className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <Stagger className="mt-10 grid gap-5 sm:mt-14 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
           {PROJECTS.slice(0, 3).map((p) => (
             <StaggerItem
               key={p.title}
@@ -109,6 +109,9 @@ export default function Home() {
                     src={p.image}
                     alt={`${p.title} preview`}
                     loading="lazy"
+                    decoding="async"
+                    width="800"
+                    height="600"
                     onError={(e) => { e.currentTarget.style.display = 'none' }}
                     className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
                   />

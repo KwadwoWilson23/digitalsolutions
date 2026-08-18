@@ -23,7 +23,7 @@ export default function StatementSection({
   return (
     <section
       ref={ref}
-      className={`relative flex min-h-[90vh] items-center overflow-hidden ${bg}`}
+      className={`relative flex min-h-[60vh] items-center overflow-hidden py-16 sm:py-20 md:min-h-[90vh] md:py-0 ${bg}`}
     >
       <GridBackdrop variant={variant} />
       <motion.div
@@ -36,7 +36,7 @@ export default function StatementSection({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.8 }}
             transition={{ type: 'spring', stiffness: 100, damping: 18 }}
-            className={`mb-8 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-widest ${
+            className={`mb-5 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-[10px] font-semibold uppercase tracking-widest sm:mb-8 sm:text-xs ${
               variant === 'white'
                 ? 'border-brand-200 bg-brand-50 text-brand-700'
                 : 'border-white/15 bg-white/5 text-brand-200 backdrop-blur'
@@ -51,7 +51,7 @@ export default function StatementSection({
           as="h2"
           text={text}
           highlightWords={highlightWords}
-          className={`text-4xl font-semibold sm:text-5xl md:text-6xl lg:text-7xl ${
+          className={`text-3xl font-semibold leading-[1.15] [text-wrap:balance] sm:text-5xl md:text-6xl lg:text-7xl ${
             variant === 'white' ? 'text-navy' : 'text-white'
           }`}
         />
@@ -62,7 +62,7 @@ export default function StatementSection({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.6 }}
             transition={{ type: 'spring', stiffness: 100, damping: 18, delay: 0.4 }}
-            className={`mt-8 max-w-2xl text-base leading-relaxed sm:text-lg ${
+            className={`mt-6 max-w-2xl text-sm leading-relaxed sm:mt-8 sm:text-base md:text-lg ${
               variant === 'white' ? 'text-slate-600' : 'text-slate-300'
             }`}
           >

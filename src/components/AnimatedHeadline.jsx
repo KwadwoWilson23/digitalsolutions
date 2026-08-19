@@ -32,7 +32,7 @@ export default function AnimatedHeadline({ segments, className = '' }) {
       initial="hidden"
       animate="show"
       aria-label={segments.map((s) => s.text).join(' ')}
-      className={`font-display font-semibold leading-[1.08] tracking-tight [text-wrap:balance] ${className}`}
+      className={`font-display font-semibold leading-[1.08] tracking-tight ${className}`}
     >
       {segments.map((seg, sIdx) => {
         const words = seg.text.split(' ')

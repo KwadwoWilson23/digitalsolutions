@@ -43,14 +43,14 @@ export default function StickyServices() {
             text="Three pillars. One studio. Software and AI built for real impact."
             highlightWords={['Three', 'pillars.', 'real', 'impact.']}
             highlightClass="text-brand-600"
-            className="mt-4 text-3xl font-semibold leading-[1.15] text-navy [text-wrap:balance] sm:mt-5 sm:text-5xl md:text-6xl"
+            className="mt-4 text-[28px] font-semibold leading-[1.15] text-navy sm:mt-5 sm:text-5xl md:text-6xl"
           />
         </div>
       </div>
 
       <div className="container-px mx-auto max-w-7xl pb-16 sm:pb-24 md:pb-32">
-        <div className="grid gap-8 md:grid-cols-2 md:gap-16">
-          <div className="md:min-h-[300vh]">
+        <div className="grid md:grid-cols-2 md:gap-16">
+          <div className="divide-y divide-slate-200 md:min-h-[300vh] md:divide-y-0">
             {chapters.map((c, i) => (
               <Chapter key={c.idx} chapter={c} index={i} total={chapters.length} />
             ))}
@@ -62,22 +62,14 @@ export default function StickyServices() {
             </div>
           </div>
         </div>
-
-        <div className="mt-8 grid gap-5 md:hidden">
-          {chapters.map((c) => (
-            <div key={c.idx} className="aspect-[4/5] overflow-hidden rounded-3xl border border-slate-200 bg-slate-950">
-              <Panel kind={c.visual} active />
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   )
 }
 
-function Chapter({ chapter, index, total }) {
+function Chapter({ chapter, total }) {
   return (
-    <div className="flex flex-col justify-center py-8 md:min-h-[100vh] md:py-0">
+    <div className="flex flex-col justify-center py-10 md:min-h-[100vh] md:py-0">
       <div className="flex flex-wrap items-center gap-2 sm:gap-3">
         <span className="font-display text-xs font-semibold tracking-widest text-brand-600 sm:text-sm">
           {chapter.idx} / {String(total).padStart(2, '0')}
@@ -85,33 +77,30 @@ function Chapter({ chapter, index, total }) {
         <span className="hidden h-px w-12 bg-brand-200 sm:block" />
         <span className="text-[10px] font-semibold uppercase tracking-widest text-slate-500 sm:text-xs">{chapter.tag}</span>
       </div>
-      <WordReveal
-        as="h3"
-        text={chapter.title}
-        className="mt-4 text-2xl font-semibold leading-[1.2] text-navy [text-wrap:balance] sm:mt-6 sm:text-4xl md:text-5xl"
-        amount={0.4}
-      />
+      <h3 className="mt-3 font-display text-[26px] font-semibold leading-[1.15] tracking-tight text-navy sm:mt-6 sm:text-4xl md:text-5xl">
+        {chapter.title}
+      </h3>
       <motion.p
-        initial={{ opacity: 0, y: 12 }}
+        initial={{ opacity: 0, y: 8 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.4 }}
-        transition={{ type: 'spring', stiffness: 100, damping: 18, delay: 0.2 }}
-        className="mt-4 max-w-md text-sm leading-relaxed text-slate-600 sm:mt-6 sm:text-lg"
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ type: 'spring', stiffness: 100, damping: 18, delay: 0.1 }}
+        className="mt-3 max-w-md text-[15px] leading-relaxed text-slate-600 sm:mt-6 sm:text-lg"
       >
         {chapter.body}
       </motion.p>
       {chapter.proofs && (
         <motion.ul
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.6 }}
-          transition={{ type: 'spring', stiffness: 100, damping: 18, delay: 0.35 }}
-          className="mt-5 flex flex-wrap gap-2"
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ type: 'spring', stiffness: 100, damping: 18, delay: 0.2 }}
+          className="mt-4 flex flex-wrap gap-2 sm:mt-5"
         >
           {chapter.proofs.map((label) => (
             <li
               key={label}
-              className="rounded-full border border-brand-200 bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700"
+              className="rounded-full border border-brand-200 bg-brand-50 px-3 py-1 text-[11px] font-semibold text-brand-700 sm:text-xs"
             >
               {label}
             </li>

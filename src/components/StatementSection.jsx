@@ -51,7 +51,7 @@ export default function StatementSection({
           as="h2"
           text={text}
           highlightWords={highlightWords}
-          className={`text-3xl font-semibold leading-[1.15] [text-wrap:balance] sm:text-5xl md:text-6xl lg:text-7xl ${
+          className={`text-3xl font-semibold leading-[1.15] sm:text-5xl md:text-6xl lg:text-7xl ${
             variant === 'white' ? 'text-navy' : 'text-white'
           }`}
         />

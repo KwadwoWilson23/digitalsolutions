@@ -77,7 +77,7 @@ export default function StickyServices() {
 
 function Chapter({ chapter, index, total }) {
   return (
-    <div className="flex min-h-[60vh] flex-col justify-center py-10 md:min-h-[100vh] md:py-0">
+    <div className="flex flex-col justify-center py-8 md:min-h-[100vh] md:py-0">
       <div className="flex flex-wrap items-center gap-2 sm:gap-3">
         <span className="font-display text-xs font-semibold tracking-widest text-brand-600 sm:text-sm">
           {chapter.idx} / {String(total).padStart(2, '0')}

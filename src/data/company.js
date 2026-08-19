@@ -1,5 +1,5 @@
 export const CONTACT = {
-  email: 'kwadwowilson2@gmail.com',
+  email: 'hellokasircompany@gmail.com',
   phone: '+233 50 439 9802',
   phoneRaw: '+233504399802',
   phoneLocal: '050 439 9802',
@@ -130,6 +130,33 @@ export const SERVICES = [
 
 export const PROJECTS = [
   {
+    title: 'Escavio',
+    category: 'Societal Impact',
+    tags: ['PropTech', 'Escrow', 'Rent Fraud'],
+    description: "Verified listings and escrow that end rent scams in Ghana — the landlord only gets paid when the tenant has the keys in hand.",
+    link: 'https://escavio.site',
+    image: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fescavio.site?w=1600&h=1200',
+    color: 'from-brand-600 to-accent-cyan',
+  },
+  {
+    title: 'KromMap',
+    category: 'Societal Impact',
+    tags: ['LegalTech', 'GIS', 'Land Records'],
+    description: 'Land-fraud detection for West Africa — verified plots, ownership history, and dispute alerts before you sign a single cedi over.',
+    link: 'https://krommap.site',
+    image: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fkrommap.site?w=1600&h=1200',
+    color: 'from-brand-700 to-accent-sky',
+  },
+  {
+    title: 'Styleon',
+    category: 'E-commerce',
+    tags: ['Fashion', 'MoMo', 'Storefront'],
+    description: 'Modern fashion storefront for African brands — beautiful product pages, MoMo and card checkout, and analytics that actually help you sell.',
+    link: 'https://styleon.site',
+    image: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fstyleon.site?w=1600&h=1200',
+    color: 'from-brand-500 to-accent-cyan',
+  },
+  {
     title: 'LectureWithKWS',
     category: 'Web App',
     tags: ['AI', 'EdTech', 'Next.js'],
@@ -152,8 +179,8 @@ export const PROJECTS = [
     category: 'Portfolio',
     tags: ['React', 'Tailwind', 'Framer Motion'],
     description: 'Personal portfolio for a full-stack developer — projects, stack, testimonials, and direct client contact.',
-    link: 'https://kwadwowilsonportfolio.vercel.app/',
-    image: '/projects/portfolio.png',
+    link: 'https://kwadwowilson.space',
+    image: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fkwadwowilson.space?w=1600&h=1200',
     color: 'from-brand-700 to-brand-400',
   },
   {

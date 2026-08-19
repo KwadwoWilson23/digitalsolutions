@@ -16,6 +16,15 @@ const letter = {
   },
 }
 
+const wordVariant = {
+  hidden: { y: '110%', opacity: 0 },
+  show: {
+    y: '0%',
+    opacity: 1,
+    transition: { type: 'spring', stiffness: 100, damping: 16, mass: 0.6 },
+  },
+}
+
 export default function AnimatedHeadline({ segments, className = '' }) {
   return (
     <motion.h1
@@ -32,23 +41,29 @@ export default function AnimatedHeadline({ segments, className = '' }) {
             {words.map((word, wIdx) => (
               <span
                 key={wIdx}
-                className={`relative inline-block whitespace-nowrap align-baseline ${
-                  seg.gradient
-                    ? 'bg-gradient-to-r from-brand-400 via-accent-sky to-accent-cyan bg-clip-text text-transparent'
-                    : ''
-                }`}
+                className="relative inline-block overflow-hidden whitespace-nowrap pb-[0.12em] align-baseline"
               >
-                {Array.from(word).map((ch, cIdx) => (
-                  <span
-                    key={cIdx}
-                    className="relative inline-block overflow-hidden align-baseline"
+                {seg.gradient ? (
+                  <motion.span
+                    variants={wordVariant}
+                    aria-hidden
+                    className="inline-block bg-gradient-to-r from-brand-400 via-accent-sky to-accent-cyan bg-clip-text text-transparent"
                   >
-                    <motion.span variants={letter} className="inline-block" aria-hidden>
-                      {ch}
-                    </motion.span>
-                  </span>
-                ))}
-                {wIdx < words.length - 1 && ' '}
+                    {word}
+                  </motion.span>
+                ) : (
+                  Array.from(word).map((ch, cIdx) => (
+                    <span
+                      key={cIdx}
+                      className="relative inline-block overflow-hidden align-baseline"
+                    >
+                      <motion.span variants={letter} className="inline-block" aria-hidden>
+                        {ch}
+                      </motion.span>
+                    </span>
+                  ))
+                )}
+                {wIdx < words.length - 1 && ' '}
               </span>
             ))}
             {sIdx < segments.length - 1 && ' '}

@@ -136,7 +136,7 @@ function HeroVisual() {
           <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/80" />
           <span className="h-2.5 w-2.5 rounded-full bg-green-400/80" />
           <span className="ml-3 rounded-md bg-white/5 px-2 py-0.5 text-xs text-slate-400">
-            kasir.tech
+            kasir.work
           </span>
         </div>
         <div className="mt-5 grid grid-cols-5 gap-3">

@@ -135,7 +135,7 @@ export const PROJECTS = [
     tags: ['PropTech', 'Escrow', 'Rent Fraud'],
     description: "Verified listings and escrow that end rent scams in Ghana — the landlord only gets paid when the tenant has the keys in hand.",
     link: 'https://escavio.site',
-    image: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fescavio.site?w=1600&h=1200',
+    image: '/projects/escavio.jpg',
     color: 'from-brand-600 to-accent-cyan',
   },
   {
@@ -144,7 +144,7 @@ export const PROJECTS = [
     tags: ['LegalTech', 'GIS', 'Land Records'],
     description: 'Land-fraud detection for West Africa — verified plots, ownership history, and dispute alerts before you sign a single cedi over.',
     link: 'https://krommap.site',
-    image: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fkrommap.site?w=1600&h=1200',
+    image: '/projects/krommap.png',
     color: 'from-brand-700 to-accent-sky',
   },
   {
@@ -153,7 +153,7 @@ export const PROJECTS = [
     tags: ['Fashion', 'MoMo', 'Storefront'],
     description: 'Modern fashion storefront for African brands — beautiful product pages, MoMo and card checkout, and analytics that actually help you sell.',
     link: 'https://styleon.site',
-    image: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fstyleon.site?w=1600&h=1200',
+    image: '/projects/styleon.png',
     color: 'from-brand-500 to-accent-cyan',
   },
   {
@@ -171,7 +171,7 @@ export const PROJECTS = [
     tags: ['React', 'Crypto', 'UI Prototype'],
     description: 'Dark-themed crypto portfolio tracker with live prices, trade actions, and performance insights for BTC, ETH, and SOL.',
     link: 'https://cryptuiscreen.vercel.app/',
-    image: '/projects/mobile.png',
+    image: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fcryptuiscreen.vercel.app%2F?w=1600&h=1200',
     color: 'from-navy to-brand-600',
   },
   {
@@ -180,7 +180,7 @@ export const PROJECTS = [
     tags: ['React', 'Tailwind', 'Framer Motion'],
     description: 'Personal portfolio for a full-stack developer — projects, stack, testimonials, and direct client contact.',
     link: 'https://kwadwowilson.space',
-    image: 'https://s.wordpress.com/mshots/v1/https%3A%2F%2Fkwadwowilson.space?w=1600&h=1200',
+    image: '/projects/portfolio.png',
     color: 'from-brand-700 to-brand-400',
   },
   {

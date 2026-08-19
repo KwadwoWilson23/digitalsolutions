@@ -2,26 +2,109 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="KASIR — Accra-based software and AI studio building products for citizens, government, and businesses across West Africa. Innovate. Build. Impact." />
     <meta name="theme-color" content="#0B1220" />
+    <meta name="color-scheme" content="light dark" />
 
+    <!-- Favicons (single asset; no type= so the browser sniffs magic bytes) -->
+    <link rel="icon" href="/logo.png?v=2" sizes="any" />
+    <link rel="shortcut icon" href="/logo.png?v=2" />
+    <link rel="apple-touch-icon" href="/logo.png?v=2" />
+    <meta name="apple-mobile-web-app-title" content="KASIR" />
+    <meta name="application-name" content="KASIR" />
+
+    <!-- Primary SEO -->
+    <title>KASIR — Software & AI Studio in Accra · Innovate. Build. Impact.</title>
+    <meta name="description" content="KASIR is an Accra-based software and AI studio building products for citizens, government, and businesses across West Africa — Escavio (rent-fraud escrow), KromMap (land-fraud detection), and AI automation for companies." />
+    <meta name="keywords" content="KASIR, KASIR Ghana, software company Accra, AI studio Ghana, Escavio, KromMap, rent fraud escrow, land fraud detection, government digitization Ghana, AI automation for businesses West Africa, custom software Accra, mobile app developer Ghana" />
+    <meta name="author" content="KASIR" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <link rel="canonical" href="https://kasir.work/" />
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="KASIR" />
     <meta property="og:title" content="KASIR — Software & AI Studio · Innovate. Build. Impact." />
-    <meta property="og:description" content="We build software and AI systems for real impact — societal solutions, government modernization, and AI automation for businesses. Based in Accra. Serving West Africa." />
-    <meta property="og:image" content="/logo.png" />
+    <meta property="og:description" content="Software and AI for citizens, government, and businesses across West Africa. Escavio, KromMap, and AI automation — built in Accra." />
+    <meta property="og:url" content="https://kasir.work/" />
+    <meta property="og:locale" content="en_GH" />
+    <meta property="og:image" content="https://kasir.work/logo.png" />
+    <meta property="og:image:secure_url" content="https://kasir.work/logo.png" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="1117" />
+    <meta property="og:image:alt" content="KASIR — Innovate. Build. Impact." />
 
+    <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="KASIR — Software & AI Studio" />
     <meta name="twitter:description" content="Software and AI for citizens, government, and businesses across West Africa. Innovate. Build. Impact." />
-    <meta name="twitter:image" content="/logo.png" />
+    <meta name="twitter:image" content="https://kasir.work/logo.png" />
+    <meta name="twitter:image:alt" content="KASIR — Innovate. Build. Impact." />
+
+    <!-- Structured data: Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://kasir.work/#organization",
+      "name": "KASIR",
+      "alternateName": ["KASIR Company", "KASIR Studio"],
+      "url": "https://kasir.work/",
+      "logo": "https://kasir.work/logo.png",
+      "image": "https://kasir.work/logo.png",
+      "slogan": "Innovate. Build. Impact.",
+      "description": "Software and AI studio building products for citizens, government, and businesses across West Africa.",
+      "email": "hellokasircompany@gmail.com",
+      "telephone": "+233504399802",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Accra",
+        "addressCountry": "GH"
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "Ghana" },
+        { "@type": "Place", "name": "West Africa" }
+      ],
+      "knowsAbout": [
+        "Software development",
+        "Artificial intelligence",
+        "AI automation",
+        "Government digitization",
+        "Rent fraud prevention",
+        "Land fraud detection",
+        "Mobile app development",
+        "E-commerce"
+      ],
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "hellokasircompany@gmail.com",
+        "telephone": "+233504399802",
+        "areaServed": "GH",
+        "availableLanguage": ["English"]
+      }]
+    }
+    </script>
+
+    <!-- Structured data: WebSite -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://kasir.work/#website",
+      "url": "https://kasir.work/",
+      "name": "KASIR",
+      "description": "Accra-based software and AI studio.",
+      "publisher": { "@id": "https://kasir.work/#organization" },
+      "inLanguage": "en"
+    }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-    <title>KASIR — Software & AI Studio · Innovate. Build. Impact.</title>
   </head>
   <body>
     <div id="root"></div>

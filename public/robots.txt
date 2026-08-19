@@ -1,0 +1,6 @@
+# https://kasir.work/robots.txt
+User-agent: *
+Allow: /
+
+# Point crawlers at the sitemap
+Sitemap: https://kasir.work/sitemap.xml

@@ -18,6 +18,8 @@ export default function Logo({ variant = 'dark' }) {
           alt="KASIR — Innovate. Build. Impact."
           width="240"
           height="200"
+          fetchpriority="high"
+          decoding="async"
           onError={() => setImgError(true)}
           className="h-11 w-auto shrink-0 rounded-xl sm:h-12"
         />

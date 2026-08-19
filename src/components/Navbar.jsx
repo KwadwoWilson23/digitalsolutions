@@ -3,6 +3,15 @@ import { NavLink, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Logo from './Logo.jsx'
 
+const swallow = (p) => { p?.catch?.(() => {}) }
+const preloaders = {
+  '/services':  () => swallow(import('../pages/Services.jsx')),
+  '/portfolio': () => swallow(import('../pages/Portfolio.jsx')),
+  '/about':     () => swallow(import('../pages/About.jsx')),
+  '/contact':   () => swallow(import('../pages/Contact.jsx')),
+}
+const preload = (to) => { preloaders[to]?.() }
+
 const links = [
   { to: '/', label: 'Home', end: true },
   { to: '/services', label: 'Services' },
@@ -46,6 +55,9 @@ export default function Navbar() {
                 <NavLink
                   to={l.to}
                   end={l.end}
+                  onMouseEnter={() => preload(l.to)}
+                  onFocus={() => preload(l.to)}
+                  onTouchStart={() => preload(l.to)}
                   className={({ isActive }) =>
                     `relative rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200 ${
                       isActive
@@ -67,7 +79,12 @@ export default function Navbar() {
             ))}
           </ul>
           <div className="hidden md:block">
-            <Link to="/contact" className="btn-primary !px-5 !py-2.5 text-sm">
+            <Link
+              to="/contact"
+              onMouseEnter={() => preload('/contact')}
+              onFocus={() => preload('/contact')}
+              className="btn-primary !px-5 !py-2.5 text-sm"
+            >
               Get a Quote
               <ArrowRight />
             </Link>
@@ -91,6 +108,8 @@ export default function Navbar() {
                     to={l.to}
                     end={l.end}
                     onClick={() => setOpen(false)}
+                    onTouchStart={() => preload(l.to)}
+                    onFocus={() => preload(l.to)}
                     className={({ isActive }) =>
                       `block rounded-xl px-4 py-3 text-base font-medium transition-colors duration-200 ${
                         isActive

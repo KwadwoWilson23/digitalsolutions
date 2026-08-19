@@ -1,15 +1,21 @@
+import { lazy, Suspense } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Hero from '../components/Hero.jsx'
 import StatementSection from '../components/StatementSection.jsx'
-import StickyServices from '../components/StickyServices.jsx'
-import BlueprintScene from '../components/BlueprintScene.jsx'
-import BentoFeatures from '../components/BentoFeatures.jsx'
 import SectionHeader from '../components/SectionHeader.jsx'
 import CTASection from '../components/CTASection.jsx'
 import WordReveal from '../components/WordReveal.jsx'
 import { Stagger, StaggerItem, spring } from '../components/Motion.jsx'
 import { PROJECTS, TESTIMONIALS, PROCESS } from '../data/company.js'
+
+const StickyServices = lazy(() => import('../components/StickyServices.jsx'))
+const BlueprintScene = lazy(() => import('../components/BlueprintScene.jsx'))
+const BentoFeatures = lazy(() => import('../components/BentoFeatures.jsx'))
+
+const SectionSpacer = ({ h = 'h-[60vh]' }) => (
+  <div aria-hidden className={`${h} w-full`} />
+)
 
 export default function Home() {
   return (
@@ -24,9 +30,13 @@ export default function Home() {
         variant="navy"
       />
 
-      <StickyServices />
+      <Suspense fallback={<SectionSpacer h="h-[70vh]" />}>
+        <StickyServices />
+      </Suspense>
 
-      <BlueprintScene />
+      <Suspense fallback={<SectionSpacer h="h-[60vh]" />}>
+        <BlueprintScene />
+      </Suspense>
 
       <StatementSection
         eyebrow="End-to-end partner"
@@ -36,7 +46,9 @@ export default function Home() {
         variant="brand"
       />
 
-      <BentoFeatures />
+      <Suspense fallback={<SectionSpacer h="h-[60vh]" />}>
+        <BentoFeatures />
+      </Suspense>
 
       <section className="bg-slate-50">
         <div className="section container-px mx-auto max-w-7xl">

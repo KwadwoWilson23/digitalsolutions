@@ -1,9 +1,8 @@
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useEffect, useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar.jsx'
 import Footer from './components/Footer.jsx'
 import ScrollToTop from './components/ScrollToTop.jsx'
-import FloatingChat from './components/FloatingChat.jsx'
 import Home from './pages/Home.jsx'
 
 const Services = lazy(() => import('./pages/Services.jsx'))
@@ -11,13 +10,31 @@ const Portfolio = lazy(() => import('./pages/Portfolio.jsx'))
 const About = lazy(() => import('./pages/About.jsx'))
 const Contact = lazy(() => import('./pages/Contact.jsx'))
 const NotFound = lazy(() => import('./pages/NotFound.jsx'))
+const FloatingChat = lazy(() => import('./components/FloatingChat.jsx'))
 
 function RouteFallback() {
   return (
-    <div className="flex min-h-[60vh] items-center justify-center">
-      <div className="h-8 w-8 animate-spin rounded-full border-2 border-slate-200 border-t-brand-600" aria-label="Loading" />
+    <div
+      aria-hidden
+      className="pointer-events-none fixed inset-x-0 top-0 z-[60] h-0.5 overflow-hidden"
+    >
+      <div className="h-full w-1/3 animate-[route-progress_1.1s_ease-in-out_infinite] bg-gradient-to-r from-brand-500 via-accent-cyan to-brand-500" />
     </div>
   )
+}
+
+function DeferredMount({ delay = 1200, children }) {
+  const [ready, setReady] = useState(false)
+  useEffect(() => {
+    const idle = window.requestIdleCallback
+    if (typeof idle === 'function') {
+      const id = idle(() => setReady(true), { timeout: delay })
+      return () => window.cancelIdleCallback?.(id)
+    }
+    const t = setTimeout(() => setReady(true), delay)
+    return () => clearTimeout(t)
+  }, [delay])
+  return ready ? children : null
 }
 
 export default function App() {
@@ -38,7 +55,11 @@ export default function App() {
         </Suspense>
       </main>
       <Footer />
-      <FloatingChat />
+      <DeferredMount delay={1200}>
+        <Suspense fallback={null}>
+          <FloatingChat />
+        </Suspense>
+      </DeferredMount>
     </div>
   )
 }

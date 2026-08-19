@@ -43,3 +43,9 @@ body {
 .section {
   @apply py-14 sm:py-20 md:py-28;
 }
+
+@keyframes route-progress {
+  0%   { transform: translateX(-100%); }
+  50%  { transform: translateX(120%); }
+  100% { transform: translateX(340%); }
+}

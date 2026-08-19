@@ -1,3 +1,4 @@
+import { Fragment } from 'react'
 import { motion } from 'framer-motion'
 
 const container = {
@@ -26,6 +27,14 @@ const wordVariant = {
 }
 
 export default function AnimatedHeadline({ segments, className = '' }) {
+  const tokens = []
+  segments.forEach((seg, sIdx) => {
+    const words = seg.text.split(' ')
+    words.forEach((word, wIdx) => {
+      tokens.push({ word, gradient: !!seg.gradient, key: `${sIdx}-${wIdx}` })
+    })
+  })
+
   return (
     <motion.h1
       variants={container}
@@ -34,42 +43,33 @@ export default function AnimatedHeadline({ segments, className = '' }) {
       aria-label={segments.map((s) => s.text).join(' ')}
       className={`font-display font-semibold leading-[1.08] tracking-tight ${className}`}
     >
-      {segments.map((seg, sIdx) => {
-        const words = seg.text.split(' ')
-        return (
-          <span key={sIdx}>
-            {words.map((word, wIdx) => (
-              <span
-                key={wIdx}
-                className="relative inline-block overflow-hidden whitespace-nowrap pb-[0.12em] align-baseline"
+      {tokens.map((tok, tIdx) => (
+        <Fragment key={tok.key}>
+          <span className="relative inline-block overflow-hidden whitespace-nowrap pb-[0.12em] align-baseline">
+            {tok.gradient ? (
+              <motion.span
+                variants={wordVariant}
+                aria-hidden
+                className="inline-block bg-gradient-to-r from-brand-400 via-accent-sky to-accent-cyan bg-clip-text text-transparent"
               >
-                {seg.gradient ? (
-                  <motion.span
-                    variants={wordVariant}
-                    aria-hidden
-                    className="inline-block bg-gradient-to-r from-brand-400 via-accent-sky to-accent-cyan bg-clip-text text-transparent"
-                  >
-                    {word}
+                {tok.word}
+              </motion.span>
+            ) : (
+              Array.from(tok.word).map((ch, cIdx) => (
+                <span
+                  key={cIdx}
+                  className="relative inline-block overflow-hidden align-baseline"
+                >
+                  <motion.span variants={letter} className="inline-block" aria-hidden>
+                    {ch}
                   </motion.span>
-                ) : (
-                  Array.from(word).map((ch, cIdx) => (
-                    <span
-                      key={cIdx}
-                      className="relative inline-block overflow-hidden align-baseline"
-                    >
-                      <motion.span variants={letter} className="inline-block" aria-hidden>
-                        {ch}
-                      </motion.span>
-                    </span>
-                  ))
-                )}
-                {wIdx < words.length - 1 && ' '}
-              </span>
-            ))}
-            {sIdx < segments.length - 1 && ' '}
+                </span>
+              ))
+            )}
           </span>
-        )
-      })}
+          {tIdx < tokens.length - 1 && ' '}
+        </Fragment>
+      ))}
     </motion.h1>
   )
 }

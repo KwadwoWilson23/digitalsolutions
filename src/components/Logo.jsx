@@ -1,10 +1,36 @@
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 
 export default function Logo({ variant = 'dark' }) {
+  const [imgError, setImgError] = useState(false)
   const textClass = variant === 'light' ? 'text-white' : 'text-navy'
   const subClass = variant === 'light' ? 'text-brand-200' : 'text-brand-600'
+
+  if (!imgError) {
+    return (
+      <Link
+        to="/"
+        className="group flex items-center"
+        aria-label="KASIR — Innovate. Build. Impact. — Home"
+      >
+        <img
+          src="/logo.png"
+          alt="KASIR — Innovate. Build. Impact."
+          width="240"
+          height="200"
+          onError={() => setImgError(true)}
+          className="h-11 w-auto shrink-0 rounded-xl sm:h-12"
+        />
+      </Link>
+    )
+  }
+
   return (
-    <Link to="/" className="group flex items-center gap-3" aria-label="KASIR — Home">
+    <Link
+      to="/"
+      className="group flex items-center gap-3"
+      aria-label="KASIR — Innovate. Build. Impact. — Home"
+    >
       <span className="relative inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-navy shadow-card">
         <LogoMark />
       </span>
